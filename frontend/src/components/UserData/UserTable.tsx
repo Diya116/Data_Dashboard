@@ -8,6 +8,7 @@ import { UserFilters } from './UserFilters';
 import { TableView } from './TableView';
 import { Pagination } from './Pagination';
 import Loader from '../ui/Loader';
+import ExportCSV from './ExportCSV';
 interface UserTableProps {
   users: UserData[];
   loading: boolean;
@@ -87,7 +88,7 @@ export function UserTable({ users, loading, error, onEdit, onDelete }: UserTable
           Showing {pagination.startIndex + 1}-{pagination.endIndex} of {pagination.totalItems} results
         </div>
       </div>
-
+      <ExportCSV data={users} fileName="users_export.csv" />
       {/* Table Section */}
       <TableView
         users={pagination.paginatedItems}
