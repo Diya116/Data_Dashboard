@@ -127,7 +127,7 @@ The frontend application will start
 
 ##  Features
 
-- User authentication and authorization
+- Admin Login
 - CRUD operations for user management
 -  data visualization
 -  Responsive design for mobile and desktop
@@ -147,8 +147,4 @@ Email: admin@gmail.com
 Password: admin123
 
 ## 🎥 Demo Video
-<<<<<<< HEAD
 [![Watch the demo](https://www.youtube.com/watch?v=Sc5ZJP4RGgo/0.jpg)](https://www.youtube.com/watch?v=Sc5ZJP4RGgo)
-=======
-[![Watch the demo](https://www.youtube.com/watch?v=Sc5ZJP4RGgo/0.jpg)](https://www.youtube.com/watch?v=Sc5ZJP4RGgo)
->>>>>>> cbd0ca57909826340f924ad7e15a1008e93ef8de
