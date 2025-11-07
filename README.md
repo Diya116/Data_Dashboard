@@ -8,7 +8,6 @@ This project is a comprehensive user management system that provides:
 - **User Authentication**: Secure login system with protected routes
 - **User Management**: Create, read, update, and delete user records
 - **Interactive Dashboard**: Visual representation of user data with charts and statistics
-- **Data Visualization**: Real-time charts including bar charts, line charts, and pie charts using Chart.js
 - **Responsive Design**: Modern UI built with React and Tailwind CSS
 - **Theme Support**: Dark/Light mode toggle
 - **Advanced Filtering**: Search, filter, and sort users with pagination support
