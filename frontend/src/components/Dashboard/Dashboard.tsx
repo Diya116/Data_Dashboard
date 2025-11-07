@@ -26,6 +26,7 @@ function Dashboard() {
   }
 
   // Prepare chart data
+  //TODO:Use useMemo to so data recomputed only when stats change
   const { barChartData, lineChartData, pieChartData } = prepareChartData(stats);
 
   return (

@@ -6,7 +6,6 @@ import { usePagination } from '../../hook/usePagination';
 import { SearchBar } from './SearchBar';
 import { UserFilters } from './UserFilters';
 import { Pagination } from './Pagination';
-import Loader from '../ui/Loader';
 import ExportCSV from './ExportCSV';
 
 // Lazy load TableView component
@@ -22,7 +21,7 @@ interface UserTableProps {
   onDelete: (userId: string) => void;
 }
 
-export function UserTable({ users, loading, error, onEdit, onDelete }: UserTableProps) {
+export function UserTable({ users, error, onEdit, onDelete }: UserTableProps) {
   // State management (UI only)
   const [searchQuery, setSearchQuery] = useState('');
   const [filters, setFilters] = useState<Filters>({
@@ -56,15 +55,6 @@ export function UserTable({ users, loading, error, onEdit, onDelete }: UserTable
     setFilters({ status: 'all', dateFrom: '', dateTo: '' });
     setSearchQuery('');
   };
-
-  // Loading state
-  // if (loading) {
-  //   return (
-  //     <div className='flex justify-center items-center min-h-[500px] w-full'>
-  //       <Loader />
-  //     </div>
-  //   );
-  // }
 
   // Error state
   if (error) {
