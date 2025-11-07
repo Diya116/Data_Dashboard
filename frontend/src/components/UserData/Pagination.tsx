@@ -21,7 +21,7 @@ export const Pagination = React.memo(({
       <button
         onClick={onPrev}
         disabled={currentPage === 1}
-        className="px-4 py-2 bg-primary text-primary-foreground rounded-lg disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed hover:opacity-90 transition"
+        className="px-4 py-2 bg-primary text-primary-foreground rounded-lg disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed hover:opacity-90 transition cursor-pointer"
       >
         Previous
       </button>
@@ -41,7 +41,7 @@ export const Pagination = React.memo(({
                 className={`px-4 py-2 rounded-lg transition ${
                   currentPage === page
                     ? 'bg-primary text-primary-foreground'
-                    : 'bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+                    : 'bg-muted text-muted-foreground hover:bg-accent hover:text-accent-foreground cursor-pointer'
                 }`}
               >
                 {page}
@@ -57,7 +57,7 @@ export const Pagination = React.memo(({
       <button
         onClick={onNext}
         disabled={currentPage === totalPages}
-        className="px-4 py-2 bg-primary text-primary-foreground rounded-lg disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed hover:opacity-90 transition"
+        className="px-4 py-2 bg-primary text-primary-foreground rounded-lg disabled:bg-muted disabled:text-muted-foreground disabled:cursor-not-allowed hover:opacity-90 transition cursor-pointer"
       >
         Next
       </button>

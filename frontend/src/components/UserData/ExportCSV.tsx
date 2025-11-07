@@ -1,4 +1,6 @@
 import React from "react";
+import Button from "../ui/Button";
+import { formatDateForDisplay } from "../../utils/dateUtils";
 
 interface JsonToCsvDownloaderProps {
   data: Record<string, any>[]; // array of JSON objects
@@ -19,6 +21,12 @@ const ExportCSV: React.FC<JsonToCsvDownloaderProps> = ({
         headers
           .map((field) => {
             let value = row[field];
+            
+            // Format dates properly for CSV
+            if (field === 'joiningDate' && value) {
+              value = formatDateForDisplay(value);
+            }
+            
             if (typeof value === "string") {
               // escape commas and quotes
               value = value.replace(/"/g, '""');
@@ -36,6 +44,7 @@ const ExportCSV: React.FC<JsonToCsvDownloaderProps> = ({
   };
 
   const handleDownload = () => {
+     console.log("ExportCSV data:", data);
     const csv = convertToCSV(data);
     const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
@@ -49,12 +58,11 @@ const ExportCSV: React.FC<JsonToCsvDownloaderProps> = ({
   };
 
   return (
-    <button
+    <Button
       onClick={handleDownload}
-      className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/80 transition"
     >
       Download CSV
-    </button>
+    </Button>
   );
 };
 

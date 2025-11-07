@@ -1,11 +1,16 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import SummaryCard from "../ui/SummaryCard";
 import { Users, DollarSign, TrendingUp } from "lucide-react";
-import LineChart from "../charts/LineChart";
-import PieChart from "../charts/PieChart";
-import BarChart from "../charts/BarChart";
 import { barChartOptions, lineChartOptions, pieChartOptions } from "../../config/chartConfig";
 import type { StatsData } from "../../service/statsService";
+import { ChartSkeleton } from "../ui/ChartSkeleton";
+// Lazy load chart components
+const LineChart = lazy(() => import("../charts/LineChart"));
+const PieChart = lazy(() => import("../charts/PieChart"));
+const BarChart = lazy(() => import("../charts/BarChart"));
+
+// Chart loading skeleton component
+
 
 interface DashboardContentProps {
   stats: StatsData;
@@ -83,7 +88,9 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
             </div>
             <div className="p-4 sm:p-5 lg:p-6">
               <div className="h-[280px] sm:h-[320px] lg:h-[360px]">
-                <LineChart data={lineChartData} options={lineChartOptions} />
+                <Suspense fallback={<ChartSkeleton height="280px" />}>
+                  <LineChart data={lineChartData} options={lineChartOptions} />
+                </Suspense>
               </div>
             </div>
           </div>
@@ -100,7 +107,9 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
             </div>
             <div className="p-4 sm:p-5 lg:p-6">
               <div className="flex justify-center items-center h-[280px] sm:h-[320px] lg:h-[360px]">
-                <PieChart data={pieChartData} options={pieChartOptions} />
+                <Suspense fallback={<ChartSkeleton height="280px" />}>
+                  <PieChart data={pieChartData} options={pieChartOptions} />
+                </Suspense>
               </div>
             </div>
           </div>
@@ -118,7 +127,9 @@ const DashboardContent: React.FC<DashboardContentProps> = ({
           </div>
           <div className="p-4 sm:p-5 lg:p-6">
             <div className="h-[280px] sm:h-[360px] lg:h-[420px]">
-              <BarChart data={barChartData} options={barChartOptions} />
+              <Suspense fallback={<ChartSkeleton height="420px" />}>
+                <BarChart data={barChartData} options={barChartOptions} />
+              </Suspense>
             </div>
           </div>
         </div>

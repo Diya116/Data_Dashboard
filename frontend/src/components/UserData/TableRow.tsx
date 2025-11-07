@@ -1,6 +1,7 @@
 import { Edit2, Trash2 } from 'lucide-react';
 import React from 'react';
 import type { UserData } from '../../types/user.type';
+import { formatDateForDisplay } from '../../utils/dateUtils';
 
 interface TableRowProps {
   user: UserData;
@@ -23,11 +24,7 @@ export const TableRow = React.memo(({ user, onEdit, onDelete }: TableRowProps) =
         </span>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-foreground">
-        {new Date(user.joiningDate).toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        })}
+        {formatDateForDisplay(user.joiningDate)}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-right">
         <div className="flex justify-end gap-2">

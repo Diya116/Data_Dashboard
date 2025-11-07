@@ -25,7 +25,7 @@ const TopBar = ({ onToggleSidebar }: TopBarProps) => {
           className="lg:hidden p-2 rounded-md hover:bg-accent transition-colors cursor-pointer"
           aria-label="Toggle sidebar"
         >
-          <Menu size={24} />
+          <Menu size={24}  className="text-sidebar-foreground"/>
         </button>
         {/* Search Bar */}
         <div className="flex-1 max-w-xl">

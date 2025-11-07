@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import type { UserData } from "../../types/user.type";
 import Button from "../ui/Button";
+import { formatDateForInput } from "../../utils/dateUtils";
 
 interface UserFormProps {
   initialData?: UserData|null;
@@ -19,7 +20,12 @@ const UserForm: React.FC<UserFormProps> = ({ initialData, onSubmit, onCancel }) 
   const [errors, setErrors] = useState<Partial<Record<keyof UserData, string>>>({});
 
   useEffect(() => {
-    if (initialData) setFormData(initialData);
+    if (initialData) {
+      setFormData({
+        ...initialData,
+        joiningDate: formatDateForInput(initialData.joiningDate)
+      });
+    }
   }, [initialData]);
 
   const handleChange = (

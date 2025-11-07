@@ -1,14 +1,19 @@
-import { useState } from 'react';
+import { useState, Suspense, lazy } from 'react';
 import type{ UserData,SortConfig,Filters} from '../../types/user.type';
 import { useFilteredUsers } from '../../hook/useFilteredUsers';
 import { useSortedUsers } from '../../hook/useSortedUsers';
 import { usePagination } from '../../hook/usePagination';
 import { SearchBar } from './SearchBar';
 import { UserFilters } from './UserFilters';
-import { TableView } from './TableView';
 import { Pagination } from './Pagination';
 import Loader from '../ui/Loader';
 import ExportCSV from './ExportCSV';
+
+// Lazy load TableView component
+const TableView = lazy(() => import('./TableView'));
+
+// Table loading skeleton
+import { TableSkeleton } from '../ui/TableSkeleton';
 interface UserTableProps {
   users: UserData[];
   loading: boolean;
@@ -33,7 +38,7 @@ export function UserTable({ users, loading, error, onEdit, onDelete }: UserTable
   // Derived data using custom hooks
   const filteredUsers = useFilteredUsers(users, searchQuery, filters);
   const sortedUsers = useSortedUsers(filteredUsers, sortConfig);
-  const pagination = usePagination<UserData>(sortedUsers, 10);
+  const pagination = usePagination<UserData>(sortedUsers, 5);
 
   // Event handlers
   const handleSort = (field: keyof UserData) => {
@@ -90,15 +95,17 @@ export function UserTable({ users, loading, error, onEdit, onDelete }: UserTable
           Showing {pagination.startIndex + 1}-{pagination.endIndex} of {pagination.totalItems} results
         </div>
       </div>
-      <ExportCSV data={users} fileName="users_export.csv" />
+      <ExportCSV data={users} fileName="users_export.csv"  />
       {/* Table Section */}
-      <TableView
-        users={pagination.paginatedItems}
-        sortConfig={sortConfig}
-        onSort={handleSort}
-        onEdit={onEdit}
-        onDelete={onDelete}
-      />
+      <Suspense fallback={<TableSkeleton />}>
+        <TableView
+          users={pagination.paginatedItems}
+          sortConfig={sortConfig}
+          onSort={handleSort}
+          onEdit={onEdit}
+          onDelete={onDelete}
+        />
+      </Suspense>
 
       {/* Pagination Section */}
       <Pagination

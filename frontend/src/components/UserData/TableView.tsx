@@ -79,3 +79,5 @@ export const TableView = React.memo(({
 });
 
 TableView.displayName = 'TableView';
+
+export default TableView;
