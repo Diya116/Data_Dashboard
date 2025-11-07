@@ -148,4 +148,3 @@ Password: admin123
 
 ## 🎥 Demo Video
 [![Watch the demo](https://www.youtube.com/watch?v=Sc5ZJP4RGgo/0.jpg)](https://www.youtube.com/watch?v=Sc5ZJP4RGgo)
-[![Watch the demo](https://www.youtube.com/watch?v=Sc5ZJP4RGgo/0.jpg)](https://www.youtube.com/watch?v=Sc5ZJP4RGgo)
