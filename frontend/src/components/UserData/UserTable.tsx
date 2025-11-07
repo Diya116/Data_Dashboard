@@ -58,13 +58,13 @@ export function UserTable({ users, loading, error, onEdit, onDelete }: UserTable
   };
 
   // Loading state
-  if (loading) {
-    return (
-      <div className='flex justify-center items-center min-h-[500px] w-full'>
-        <Loader />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className='flex justify-center items-center min-h-[500px] w-full'>
+  //       <Loader />
+  //     </div>
+  //   );
+  // }
 
   // Error state
   if (error) {

@@ -137,9 +137,15 @@ The frontend application will start
 - Dark/Light theme toggle
 -  Protected routes
 -  Loading states and error handling
-
+## Future Improvements
+- Integrate React Query for persistent data synchronization and caching of stats and user data
+- Add authentication middleware in the backend for secure API access
+- Implement global state management (Context API or Zustand) to store filter configurations
 ## Demo
 Try it now with demo credentials:
 
 Email: admin@gmail.com
 Password: admin123
+
+## 🎥 Demo Video
+[![Watch the demo](https://www.youtube.com/watch?v=Sc5ZJP4RGgo/0.jpg)](https://www.youtube.com/watch?v=Sc5ZJP4RGgo)
