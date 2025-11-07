@@ -1,7 +1,6 @@
-# User Management Dashboard
+# Mini CRM / Analytics Dashboard
 
-A full-stack web application for managing users with an interactive dashboard, built with React, TypeScript, Express, and MongoDB.
-
+A modern, full-stack dashboard web application for managing users and visualizing analytics data, built with React, TypeScript, Express, and MongoDB.
 ##  Overview
 
 This project is a comprehensive user management system that provides:
@@ -43,8 +42,8 @@ Before you begin, ensure you have the following installed:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd consult_anubhav
+git clone https://github.com/Diya116/Data_Dashboard
+cd Data_Dashboard
 ```
 
 ### Step 2: Backend Setup
@@ -60,15 +59,12 @@ npm install
 ```
 
 3. Create a `.env` file in the backend directory:
-```bash
-# Create .env file
-New-Item -Path .env -ItemType File
-```
 
 4. Add the following environment variables to `.env`:
 ```env
-MONGODB_URI=mongodb://localhost:27017/your_database_name
-PORT=5050
+MONGODB_URI=
+PORT=
+FRONTEND_URL=
 ```
 
 > **Note**: If using MongoDB Atlas, replace the `MONGODB_URI` with your Atlas connection string.
@@ -78,7 +74,7 @@ PORT=5050
 npm run dev
 ```
 
-The backend server will start on `http://localhost:5050`
+The backend server will start
 
 ### Step 3: Frontend Setup
 
@@ -97,14 +93,7 @@ npm install
 npm run dev
 ```
 
-The frontend application will start on `http://localhost:5173`
-
-### Step 4: Access the Application
-
-Open your browser and navigate to:
-```
-http://localhost:5173
-```
+The frontend application will start
 
 
 ##  Available Scripts
@@ -123,7 +112,7 @@ http://localhost:5173
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
 
-## 🌐 API Endpoints
+##  API Endpoints
 
 ### Authentication
 - `POST /auth/login` - User login
@@ -141,7 +130,7 @@ http://localhost:5173
 
 - User authentication and authorization
 - CRUD operations for user management
-- Real-time data visualization
+-  data visualization
 -  Responsive design for mobile and desktop
 - Search and filter functionality
 -  Pagination for large datasets
@@ -149,4 +138,8 @@ http://localhost:5173
 -  Protected routes
 -  Loading states and error handling
 
+## Demo
+Try it now with demo credentials:
 
+Email: admin@gmail.com
+Password: admin123
