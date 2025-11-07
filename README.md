@@ -127,7 +127,7 @@ The frontend application will start
 
 ##  Features
 
-- User authentication and authorization
+- Admin Login
 - CRUD operations for user management
 -  data visualization
 -  Responsive design for mobile and desktop
